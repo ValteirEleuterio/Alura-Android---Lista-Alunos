@@ -40,6 +40,19 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         registerForContextMenu(listaAlunos);
 
+        listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+
+                Aluno aluno = (Aluno) lista.getItemAtPosition(position);
+
+                Intent intent = new Intent(ListaAlunosActivity.this, FormularioActivity.class);
+                intent.putExtra("aluno", aluno);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
